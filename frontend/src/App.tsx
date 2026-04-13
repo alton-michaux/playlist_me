@@ -27,8 +27,10 @@ function HomePage() {
 }
 
 export default function App() {
+  const { isLoggedIn } = useAuth();
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className={`min-h-screen bg-background${isLoggedIn ? ' dark' : ''}`}>
       <Navbar />
       <main>
         <Routes>
