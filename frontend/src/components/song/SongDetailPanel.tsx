@@ -3,7 +3,6 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
-import { AudioPreviewPlayer } from './AudioPreviewPlayer';
 import { useSong } from '@/hooks/useSong';
 import { useLikeSong } from '@/hooks/useLikeSong';
 import { useAuth } from '@/context/AuthContext';
@@ -78,7 +77,15 @@ export function SongDetailPanel({ trackId, onClose }: SongDetailPanelProps) {
 
       <Separator />
 
-      <AudioPreviewPlayer previewUrl={track.preview_url} />
+      {/* Spotify embed player — free users get a preview, Premium users get the full track */}
+      <iframe
+        src={`https://open.spotify.com/embed/track/${trackId}?utm_source=generator`}
+        width="100%"
+        height="152"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        className="rounded-xl"
+      />
 
       {accessToken && (
         <Button

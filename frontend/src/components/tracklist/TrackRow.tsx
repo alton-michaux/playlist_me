@@ -1,4 +1,4 @@
-import { Play, Pause, Heart } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { SpotifyTrack } from '@/types/spotify';
 
@@ -6,9 +6,7 @@ interface TrackRowProps {
   track: SpotifyTrack;
   index: number;
   isSelected: boolean;
-  isPlaying: boolean;
   onSelect: (trackId: string) => void;
-  onPlayPause: (previewUrl: string | null) => void;
   onLike: (trackId: string) => void;
   isLiking: boolean;
 }
@@ -23,9 +21,7 @@ export function TrackRow({
   track,
   index,
   isSelected,
-  isPlaying,
   onSelect,
-  onPlayPause,
   onLike,
   isLiking,
 }: TrackRowProps) {
@@ -38,42 +34,19 @@ export function TrackRow({
       }`}
       onClick={() => onSelect(track.id)}
     >
-      {/* Index / play indicator */}
-      <span className="w-5 text-xs text-muted-foreground text-right shrink-0 group-hover:hidden">
+      <span className="w-5 text-xs text-muted-foreground text-right shrink-0">
         {index + 1}
       </span>
 
-      {/* Play/pause button — visible on hover */}
-      <Button
-        variant="ghost"
-        size="icon"
-        className="w-5 h-5 p-0 hidden group-hover:flex shrink-0"
-        onClick={(e) => {
-          e.stopPropagation();
-          onPlayPause(track.preview_url);
-        }}
-        disabled={!track.preview_url}
-        title={track.preview_url ? 'Preview' : 'No preview available'}
-      >
-        {isPlaying ? (
-          <Pause className="w-3 h-3" />
-        ) : (
-          <Play className="w-3 h-3" />
-        )}
-      </Button>
-
-      {/* Track info */}
       <div className="flex-1 min-w-0">
         <p className={`text-sm truncate ${isSelected ? 'font-medium' : ''}`}>{track.name}</p>
         <p className="text-xs text-muted-foreground truncate">{artistNames}</p>
       </div>
 
-      {/* Duration */}
       <span className="text-xs text-muted-foreground shrink-0">
         {msToMinutes(track.duration_ms)}
       </span>
 
-      {/* Like button */}
       <Button
         variant="ghost"
         size="icon"
