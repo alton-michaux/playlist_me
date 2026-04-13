@@ -3,6 +3,7 @@ import { Navbar } from './components/layout/Navbar';
 import { CallbackHandler } from './components/auth/CallbackHandler';
 import { LandingPage } from './components/landing/LandingPage';
 import { BrowsePage } from './components/browse/BrowsePage';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { Toaster } from './components/ui/toaster';
 import { useAuth } from './context/AuthContext';
 
@@ -16,7 +17,13 @@ function NotFound() {
 
 function HomePage() {
   const { isLoggedIn } = useAuth();
-  return isLoggedIn ? <BrowsePage /> : <LandingPage />;
+  return isLoggedIn ? (
+    <ErrorBoundary>
+      <BrowsePage />
+    </ErrorBoundary>
+  ) : (
+    <LandingPage />
+  );
 }
 
 export default function App() {
