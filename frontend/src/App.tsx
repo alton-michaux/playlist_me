@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { CallbackHandler } from './components/auth/CallbackHandler';
+import { Toaster } from './components/ui/toaster';
 import { useAuth } from './context/AuthContext';
 
 // Pages (implemented in Phase 5 — placeholders for now)
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+      <Toaster />
     </div>
   );
 }
