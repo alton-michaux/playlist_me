@@ -30,7 +30,7 @@ export default function App() {
   const { isLoggedIn } = useAuth();
 
   return (
-    <div className={`min-h-screen bg-background${isLoggedIn ? ' dark' : ''}`}>
+    <div className={`min-h-screen bg-background text-foreground${isLoggedIn ? ' dark' : ''}`}>
       <Navbar />
       <main>
         <Routes>
