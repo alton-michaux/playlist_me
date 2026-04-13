@@ -1,13 +1,13 @@
 # Playlistify — Developer Guide
 
-A Spotify playlist browser. Users can discover their playlists by genre, browse tracks, and view song details.
+A Spotify playlist browser. Users can discover my playlists by genre, browse tracks, and view song details and listen to individual songs.
 
 ## Repository Structure
 
 ```
 playlistify/              ← React 18 frontend (Create React App)
 playlistify_backend/
-  playlistify_server/     ← Node.js + Express backend
+playlistify_server/     ← Node.js + Express backend
 ```
 
 ---
