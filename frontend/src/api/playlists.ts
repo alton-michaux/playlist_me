@@ -5,10 +5,8 @@ import type {
   SpotifyPlaylistTrackItem,
 } from '../types/spotify';
 
-export async function getGenres(token: string): Promise<string[]> {
-  const response = await apiClient.get<{ genres: string[] }>('/genres', {
-    params: { token },
-  });
+export async function getGenres(): Promise<string[]> {
+  const response = await apiClient.get<{ genres: string[] }>('/genres');
   return response.data.genres;
 }
 

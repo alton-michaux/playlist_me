@@ -16,7 +16,7 @@ export function BrowsePage() {
   const [selectedGenre, setSelectedGenre] = useState('all');
   const [selectedPlaylist, setSelectedPlaylist] = useState<SpotifyPlaylist | null>(null);
 
-  const { data: genres = [] } = useGenres(accessToken);
+  const { data: genres = [] } = useGenres();
   const { data: playlistsData, isLoading: playlistsLoading } = usePlaylists(accessToken);
   const followMutation = useFollowPlaylist(accessToken);
 
