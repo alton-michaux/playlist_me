@@ -82,7 +82,9 @@ export function SongDetailPanel({ trackId, onClose }: SongDetailPanelProps) {
         src={`https://open.spotify.com/embed/track/${trackId}?utm_source=generator`}
         width="100%"
         height="152"
+        frameBorder="0"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        allowFullScreen
         loading="lazy"
         className="rounded-xl"
       />
