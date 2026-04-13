@@ -38,10 +38,10 @@ export function BrowsePage() {
   }, [allPlaylists, search, selectedGenre]);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] min-h-[calc(100vh-3.5rem)]">
-      {/* Left: filters + playlist grid */}
-      <div className="flex flex-col p-6 gap-6">
-        <div className="flex flex-wrap gap-3 items-center">
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] h-[calc(100vh-3.5rem)]">
+      {/* Left: sticky filters + scrollable playlist grid */}
+      <div className="flex flex-col overflow-hidden">
+        <div className="flex flex-wrap gap-3 items-center p-6 pb-4 shrink-0">
           <SearchBar value={search} onChange={setSearch} />
           <GenreDropdown
             genres={genres}
@@ -50,18 +50,20 @@ export function BrowsePage() {
           />
         </div>
 
-        <PlaylistGrid
-          playlists={filteredPlaylists}
-          isLoading={playlistsLoading}
-          selectedPlaylistId={selectedPlaylist?.id ?? null}
-          onSelect={setSelectedPlaylist}
-          onFollow={(id) => followMutation.mutate(id)}
-          isFollowing={followMutation.isPending}
-        />
+        <div className="flex-1 overflow-y-auto px-6 pb-6">
+          <PlaylistGrid
+            playlists={filteredPlaylists}
+            isLoading={playlistsLoading}
+            selectedPlaylistId={selectedPlaylist?.id ?? null}
+            onSelect={setSelectedPlaylist}
+            onFollow={(id) => followMutation.mutate(id)}
+            isFollowing={followMutation.isPending}
+          />
+        </div>
       </div>
 
-      {/* Right: tracklist panel */}
-      <div className="border-l hidden lg:block overflow-hidden">
+      {/* Right: independently scrollable tracklist panel */}
+      <div className="border-l hidden lg:flex flex-col overflow-hidden">
         {selectedPlaylist ? (
           <TracklistPanel playlist={selectedPlaylist} />
         ) : (
