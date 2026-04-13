@@ -1,28 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { CallbackHandler } from './components/auth/CallbackHandler';
+import { LandingPage } from './components/landing/LandingPage';
+import { BrowsePage } from './components/browse/BrowsePage';
 import { Toaster } from './components/ui/toaster';
 import { useAuth } from './context/AuthContext';
-
-// Pages (implemented in Phase 5 — placeholders for now)
-function LandingPlaceholder() {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4 text-center px-4">
-      <h1 className="text-4xl font-bold">playlist_me</h1>
-      <p className="text-muted-foreground text-lg max-w-md">
-        Browse Spotify playlists by genre, preview tracks, and save your favourites.
-      </p>
-    </div>
-  );
-}
-
-function BrowsePlaceholder() {
-  return (
-    <div className="p-6">
-      <p className="text-muted-foreground">Browse page — coming in Phase 5</p>
-    </div>
-  );
-}
 
 function NotFound() {
   return (
@@ -34,7 +16,7 @@ function NotFound() {
 
 function HomePage() {
   const { isLoggedIn } = useAuth();
-  return isLoggedIn ? <BrowsePlaceholder /> : <LandingPlaceholder />;
+  return isLoggedIn ? <BrowsePage /> : <LandingPage />;
 }
 
 export default function App() {
