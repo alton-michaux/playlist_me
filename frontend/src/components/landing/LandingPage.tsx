@@ -25,7 +25,7 @@ export function LandingPage() {
         </h1>
         <p className="text-muted-foreground text-xl leading-relaxed">
           Browse curated Spotify playlists by genre, preview tracks, and
-          save your favourites — all in one place.
+          save your favorites — all in one place.
         </p>
         <div className="flex gap-3 justify-center flex-wrap">
           <a
