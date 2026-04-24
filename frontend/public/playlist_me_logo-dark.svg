@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" width="680" height="300">
+  <!-- playlist_me logo — waveform variant, dark mode -->
+
+  <!-- Background -->
+  <rect width="680" height="300" fill="#121212"/>
+
+  <!-- Waveform frame -->
+  <rect x="52" y="80" width="160" height="140" rx="10" fill="none" stroke="#1DB954" stroke-width="2" opacity="0.35"/>
+
+  <!-- Wave 1 — full amplitude -->
+  <path d="M62 130 C82 90 102 90 122 130 C142 170 162 170 182 130 C195 105 200 105 202 110" fill="none" stroke="#1DB954" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Wave 2 — quieter, offset -->
+  <path d="M62 165 C77 148 92 148 107 165 C122 182 137 182 152 165 C167 148 182 148 197 165" fill="none" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- Center dashed line -->
+  <line x1="62" y1="148" x2="202" y2="148" stroke="#1DB954" stroke-width="0.75" opacity="0.2" stroke-dasharray="4 4"/>
+
+  <!-- Wordmark -->
+  <text x="240" y="148"
+    font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="500"
+    font-size="54"
+    fill="#FFFFFF">playlist<tspan fill="#1DB954">_me</tspan></text>
+
+  <!-- Tagline -->
+  <text x="241" y="178"
+    font-family="'JetBrains Mono', 'Courier New', monospace"
+    font-weight="400"
+    font-size="12"
+    fill="#aaaaaa"
+    letter-spacing="2">browse · preview · save</text>
+</svg>
