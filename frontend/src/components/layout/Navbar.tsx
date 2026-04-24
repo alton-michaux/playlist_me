@@ -18,7 +18,8 @@ export function Navbar() {
 
   return (
     <nav className="flex justify-between items-center px-6 h-14 border-b bg-background sticky top-0 z-10">
-      <span className="font-semibold text-lg tracking-tight">playlist_me</span>
+      <img src="/playlist_me.svg" alt="playlist_me" className="h-8 block dark:hidden" />
+      <img src="/playlist_me_logo-dark.svg" alt="playlist_me" className="h-8 hidden dark:block" />
 
       <div className="flex items-center gap-3">
         {isLoggedIn && user ? (
